@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-#configres ubuntu machine for 301 redirection
+#!/usr/bin/env bash                                                                                                                                      
+#configres ubuntu machine for 301 redirection   
 apt-get update
 apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
