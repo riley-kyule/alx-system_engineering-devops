@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Uses REST API for give ID to return TODO list info"""
+"""Returns TODO list for given employee ID"""
 import requests
 import sys
 
