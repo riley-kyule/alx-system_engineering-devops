@@ -4,6 +4,7 @@ Function that queries Reddit subs on a given Subreddit
 """
 import requests
 
+
 def number_of_subscribers(subreddit):
     """
     Returns the total number of subs on a given subreddit
@@ -12,6 +13,8 @@ def number_of_subscribers(subreddit):
     headers = {
         "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
     }
+
+
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 404:
         return 0
