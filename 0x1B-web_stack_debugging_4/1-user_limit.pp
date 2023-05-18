@@ -1,4 +1,4 @@
-$ Fix issue caused by high number of files opened
+# Fix issue caused by high number of files opened
 
 exec {'replace-1':
   provider => shell,
