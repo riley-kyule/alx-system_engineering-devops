@@ -1,29 +1,34 @@
-Using one of the web stack debugging project issue or an outage you have personally face, write a postmortem. Most of you will never have faced an outage, so just get creative and invent your own :)
+<h1>Incident Report</h1>
+<h2>Incident Summary</h2>
+<p>On September 10, 2023, at 12:45 AM GMT +3, the user authentication service experienced a complete outage of services. The outage lasted for 45 minutes and resulted in a 30% decrease in overall system usage. </p>
+<h2>Root Cause</h2>
+<p>The main culprit was a misconfiguration in the load balancer settings. A recent update to the load balancer configuration inadvertently led to excessive load distribution among backend servers. This imbalance caused server nodes to exceed their capacity, resulting in degraded service performance and eventual unavailability. Luckily we caught this early enough</p>
+<h2>Timeline</h2>
+<li>
+<ul>12:45 AM: Monitoring systems triggered alerts for increased error rates and latency in the user authentication service.</ul>
+<ul>12:50 AM: The incident response team initiated an investigation to identify the cause of the sudden service degradation.</ul>
+<ul>01:00 AM: Initial assumptions were centered around potential database issues due to historical similar incidents.</ul>
+<ul>01:15 AM: Recognizing the persistence of the issue, the incident was escalated to the engineering leadership team for further review and decision-making.</ul>
+<ul>01:25 AM: After a brief discussion among the engineering leadership, the root cause of the misconfigured load balancer was identified, and corrective actions were planned.</ul>
+<ul>01:30 AM: The incident was resolved by reverting the load balancer configuration to its previous state and thoroughly testing the service to ensure a return to normal operation.</ul>
+</li>
+<h2>Corrective and Preventative Measures</h2>
+<p>The following corrective and preventative measures have been taken to address the issue and prevent future occurrences:</p>
+<li>
+<ul>A thorough review of configuration changes will be conducted before deployment to identify potential misconfigurations.</ul>
+<ul>Automated tests will be implemented for load balancer configuration to catch distribution imbalances during the development and testing phases.</ul>
+<ul>Real-time monitoring and alerting will be enhanced to quickly detect and respond to sudden spikes in error rates and service degradation.</ul>
+<ul>Clear communication channels will be established for incident escalation to ensure timely involvement of relevant stakeholders.</ul>
+<ul>Regular training sessions will be conducted for the operations team to improve incident response capabilities and reduce the chances of misleading investigations.</ul>
+</li>
+<h2>Tasks to Address the Issue</h2>
+<p>The following tasks will be completed to address the issue:</p>
+<li>
+<ul>The release process will be reviewed to implement stricter checks on configuration changes before deployment.</ul>
+<ul>Automated tests will be developed and integrated for load balancer configuration adjustments.</ul>
+<ul>Monitoring tools will be updated to provide real-time insights into traffic distribution and backend server performance.</ul>
+<ul>An incident response playbook will be created with predefined escalation paths and clear responsibilities.</ul>
+<ul>Incident response training will be conducted to ensure prompt response and recovery during service outages.</ul>
+</li>
 
-Requirements:
 
-Issue Summary (that is often what executives will read) must contain:
-duration of the outage with start and end times (including timezone)
-what was the impact (what service was down/slow? What were user experiencing? How many % of the users were affected?)
-what was the root cause
-Timeline (format bullet point, format: time - keep it short, 1 or 2 sentences) must contain:
-
-when was the issue detected
-how was the issue detected (monitoring alert, an engineer noticed something, a customer complained…)
-actions taken (what parts of the system were investigated, what were the assumption on the root cause of the issue)
-misleading investigation/debugging paths that were taken
-which team/individuals was the incident escalated to
-how the incident was resolved
-Root cause and resolution must contain:
-
-explain in detail what was causing the issue
-explain in detail how the issue was fixed
-Corrective and preventative measures must contain:
-
-what are the things that can be improved/fixed (broadly speaking)
-a list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory…)
-Be brief and straight to the point, between 400 to 600 words
-
-While postmortem format can vary, stick to this one so that you can get properly reviewed by your peers.
-
-Please, remember that these blogs must be written in English to further your technical ability in a variety of settings.
